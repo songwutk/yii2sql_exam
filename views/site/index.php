@@ -5,15 +5,14 @@
 <hr>
 
 <?php
-			 foreach($model as $employee){
-				 echo '<div class="row">';
-				 echo '<div class="col-md-4">';	 echo $employee['name']." ";  					echo "</div>";
-				 echo '<div class="col-md-1"><div align="right">';	 echo number_format($employee['salary']);  echo "</div></div>";
-				 echo "</div>";
+			 foreach($model as $data){
+				$employee=['name'=>$data['name'],'salary'=>$data['salary']];
+				
+				echo $this->render("_salary",['employee'=>$employee]);
 			 }
 ?>			 
-<hr>
 
-<div class="row">
+<div class="row"><hr>
 	  <div class="col-md-4">รวม</div>		  <div class="col-md-1"><div align="right"><?=number_format($total)?></div></div>
 </div>
+
